@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between px-6 py-2">
                 {/* Menu Icon (Mobile Only) */}
                 <div className="md:hidden">
-                    <button onClick={toggleMenu} className="text-gray-800 hover:text-gray-600 focus:outline-none">
+                    <button onClick={toggleMenu} className="text-gray-800 hover:text-gray-600 focus:outline-none mt-2">
                         <FaBars className="text-2xl" />
                     </button>
                 </div>
