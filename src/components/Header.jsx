@@ -4,7 +4,7 @@ import logowtxt from '../assets/logo-w-txt.png';
 
 const Header = () => {
     return (
-        <header className="relative h-[700px] flex items-center justify-center bg-cover bg-center" style={{
+        <header className="relative h-[650px] flex items-center justify-center bg-cover bg-center" style={{
             backgroundImage: `url(${headerpic})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -12,7 +12,7 @@ const Header = () => {
             {/* Curved Bottom */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden">
                 <svg
-                    viewBox="0 0 1440 120"
+                    viewBox="0 0 1440 110"
                     xmlns="http://www.w3.org/2000/svg"
                     className="fill-current text-white"
                 >
