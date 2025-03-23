@@ -9,6 +9,7 @@ const Home = () => {
             <Navbar />
             <Header />
             {/* <Footer /> */}
+            ADD HOME PAGE CONTENT HERE 
         </>
     )
 }
