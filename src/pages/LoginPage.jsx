@@ -5,7 +5,7 @@ import { LoginGoogleForm } from "../components/LoginGoogleForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
 
-export const SignupPage = () => {
+export const LoginPage = () => {
     return (
         <div 
             className="flex justify-center items-center h-screen relative"
@@ -24,19 +24,22 @@ export const SignupPage = () => {
             }}>
                 <div className="w-full flex flex-col md:block relative px-4 md:px-0">
                     <AuthForm 
-                        title="Sign Up for ClockBakers"
+                        title="Login for ClockBakers"
                         subtitle="Enjoy fresh items of our"
-                        buttonText="CREATE AN ACCOUNT"
-                        fields={["USERNAME", "EMAIL", "PASSWORD", "CONFIRM PASSWORD"]}
+                        buttonText="LOGIN"
+                        fields={["EMAIL", "PASSWORD"]}
+                        style="mt-15"
                     />
                     <LoginGoogleForm 
-                        linkText="Don't have an account?"
-                        linkHref="/login"
-                        linkDisplayText="Login"
-                        style="mt-20"
+                        linkText="Already have an account?"
+                        linkHref="/"
+                        linkDisplayText="Signup"
+                        style="mt-15"
                     />
                 </div>
             </div>
         </div>
     );
 };
+
+export default LoginPage;
