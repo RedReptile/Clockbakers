@@ -16,7 +16,7 @@ export const SignupPage = () => {
             }}>
             <Navbar />
 
-            <div className="absolute w-11/12 md:w-[1150px] h-auto md:h-[580px] mt-[30px] shadow-[0px_2px_2px_2px_00000040] bg-white flex flex-col items-center justify-start rounded-lg pt-24"
+            <div className="absolute w-11/12 md:w-[1150px] h-auto md:h-[660px] mt-[110px] shadow-[0px_2px_2px_2px_00000040] bg-white flex flex-col items-center justify-start rounded-lg pt-24"
             style={{
                 backgroundImage: `url(${formbg})`,
                 backgroundSize: 'cover',
@@ -27,7 +27,9 @@ export const SignupPage = () => {
                         title="Sign Up for ClockBakers"
                         subtitle="Enjoy fresh items of our"
                         buttonText="CREATE AN ACCOUNT"
-                        fields={["USERNAME", "EMAIL", "PASSWORD", "CONFIRM PASSWORD"]}
+                        fields={["FIRST NAME", "LAST NAME", "EMAIL", "PHONE NUMBER", "PASSWORD", "CONFIRM PASSWORD"]}
+                        style="mt-[-25px]"
+                        subtext={false}
                     />
                     <LoginGoogleForm 
                         linkText="Don't have an account?"

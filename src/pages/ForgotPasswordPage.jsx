@@ -5,7 +5,7 @@ import { LoginGoogleForm } from "../components/LoginGoogleForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
 
-export const LoginPage = () => {
+export const ForgotPassword = () => {
     return (
         <div 
             className="flex justify-center items-center h-screen relative"
@@ -22,26 +22,26 @@ export const LoginPage = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>
-                <div className="w-full flex flex-col md:block relative px-4 md:px-0">
-                    <AuthForm 
-                        title="Login for ClockBakers"
-                        subtitle="Enjoy fresh items of our"
-                        buttonText="LOGIN"
-                        fields={["EMAIL", "PASSWORD"]}
-                        style="mt-15"
-                        showForgotPassword={true}
-                    />
-                    
-                    <LoginGoogleForm 
-                        linkText="Don't have an account?"
-                        linkHref="/"
-                        linkDisplayText="Signup"
-                        style="mt-15"
-                    />
-                </div>
+                <AuthForm 
+                    title="Forgot Password?"
+                    subtitle="Enjoy fresh items of our"
+                    buttonText="LOGIN"
+                    fields={["EMAIL"]}
+                    style="mt-0"
+                    center={true}
+                    subtext="Please enter you’re email address to get the verification code."
+                />
+
+                <p className="text-center mt-5 mb-7 text-sm text-[#616161]">
+                    Already have an account?  
+                    <a href="/login" className="font-black text-[#212121] underline p-2 ">
+                        Login
+                    </a>
+                </p>
+
             </div>
         </div>
     );
 };
 
-export default LoginPage;
+export default ForgotPassword;
