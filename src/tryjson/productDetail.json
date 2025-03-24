@@ -1,0 +1,17 @@
+{
+    "id": 1,
+    "name": "Red Velvet Cake - 1 Pound",
+    "price": 100.00,
+    "description": "Delicious and moist Red Velvet Cake made with the finest ingredients.",
+    "image": "/src/assets/cakes/Red Velvet Cake.png",
+    "thumbnails": [
+      "src/assets/cakes/CupCake.png",
+      "src/assets/cakes/Black Forest Cake.png",
+      "src/assets/cakes/Vanila Cake.png"
+    ],
+    "weights": [1, 2, 3],
+    "deliveryDate": "2025-03-25",
+    "location": ["Patan", "Kupondole", "ktm"],
+    "time": ["12:00 PM", "3:00 PM", "6:00 PM"]
+  }
+  
