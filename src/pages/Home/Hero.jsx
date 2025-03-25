@@ -26,7 +26,7 @@ const Hero = () => {
                     <p className="text-gray-500 max-w-md">
                         safe dafsaf fdafd fasdf da
                     </p>
-                    <button className="bg-pink-500 text-white py-2 px-6 rounded-md mt-3">Learn More</button>
+                    <button className="bg-pink-500 text-white py-2 px-6 rounded-md mt-3 border-1 hover:bg-white hover:text-pink-500 transition duration-500">Learn More</button>
                 </div>
 
                 <img src={rightArrow} alt="Arrow Right" className="h-12" />
