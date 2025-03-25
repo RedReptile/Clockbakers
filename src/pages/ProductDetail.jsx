@@ -47,6 +47,7 @@ const ProductDetail = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
        
         {/* left Side */}
+        {/* Cake Picture */}
         <div className="relative flex justify-center items-center flex-col">
           <div className="relative flex justify-center">
             <img
@@ -64,6 +65,8 @@ const ProductDetail = () => {
               </div>
             )}
           </div>
+
+          {/* Popup Image */}
           <div className="flex gap-2 mt-4">
             {product.thumbnails.map((image, index) => (
               <img
@@ -75,6 +78,24 @@ const ProductDetail = () => {
                 onMouseLeave={handleMouseLeave}
               />
             ))}
+          </div>
+          {/* Description */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-2 group">
+            <div className="mt-2 text-left">
+            <div className="flex items-center">
+          {/* Red left section */}
+          <div className="bg-pink-600 w-2 h-10"></div>
+          <div className="ml-4">
+            <h1 className="text-2xl font-semibold text-gray-800">Description</h1>
+          </div>
+        </div>
+              <p className="mt-1 text-md">{product.description.intro}</p>
+              <ul className="list-disc text-md pl-5 mt-2">
+                {product.description.details.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -88,7 +109,7 @@ const ProductDetail = () => {
               {product.weights.map((weight) => (
                 <button
                   key={weight}
-                  className="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600"
+                  className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-600"
                 >
                   {weight}
                 </button>
