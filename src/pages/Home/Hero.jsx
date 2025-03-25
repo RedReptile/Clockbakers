@@ -47,9 +47,9 @@ const Hero = () => {
                     alt="Cake Presentation"
                     className="rounded-lg shadow-lg w-96 h-auto"
                 />
-                <div className="text-left max-w-lg">
+                <div className="text-left max-w-lg mt-5">
                     <p className="text-pink-500 text-s mb-2" style={{ fontFamily: "'Kalam', cursive" }}>Write Something Here</p>
-                    <h2 className="text-xl" style={{ color: '#204B6F' }}>Write somethings here<br />too like anything works</h2>
+                    <h2 className="text-xl" style={{ color: '#204B6F' }}>Write somethings here too like anything works</h2>
                     <p className="text-gray-500 text-sm mt-2">
                         safe dafsaf fdafd fasdf da fda fda afda fda fda fadasdafts fas asdsd dwasd was dwasd wasd was dwasd sasd wasd wasd sasfsaf dsasd asdafda sda dsa d
                     </p>
