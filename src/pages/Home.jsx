@@ -1,15 +1,16 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Header from './Home/Header'
+import Hero from './Home/Hero'
 
 const Home = () => {
     return (
         <>
             <Navbar />
             <Header />
+            <Hero />
             {/* <Footer /> */}
-            ADD HOME PAGE CONTENT HERE 
         </>
     )
 }

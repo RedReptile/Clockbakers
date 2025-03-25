@@ -1,6 +1,6 @@
 import React from 'react';
-import headerpic from '../assets/header-pic.jpg';
-import logowtxt from '../assets/logo-w-txt.png';
+import headerpic from '../../assets/header-pic.jpg';
+import logowtxt from '../../assets/logo-w-txt.png';
 
 const Header = () => {
     return (
