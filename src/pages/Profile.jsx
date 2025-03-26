@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiMail, FiPhone, FiLock, FiLogOut, FiUser, FiShoppingBag, FiClock, FiMapPin, FiEdit, FiMenu, FiX } from 'react-icons/fi';
+import { FiMail, FiPhone, FiLock, FiLogOut, FiUser, FiShoppingBag, FiClock, FiMapPin, FiEdit, FiMenu, FiX, FiArrowLeft } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
@@ -467,7 +467,15 @@ const ProfilePage = () => {
         <div className="flex flex-col md:flex-row gap-6">
           <div className="hidden md:block md:w-1/3 lg:w-1/4">
             <div className="bg-white rounded-xl shadow-sm overflow-hidden sticky top-24">
-              <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50">
+              <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-200">
+                {/* Added Back Button */}
+                <button 
+                  onClick={() => navigate(-1)}
+                  className="flex items-center text-gray-800 hover:text-white mb-4 transition-colors"
+                >
+                  <FiArrowLeft className="mr-2" />
+                </button>
+
                 <div className="flex flex-col items-center">
                   <div className="w-20 h-20 rounded-full bg-white shadow-inner flex items-center justify-center mb-4 overflow-hidden">
                     {user.profileImage ? (
