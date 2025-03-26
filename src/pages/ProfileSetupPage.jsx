@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../components/navbar";
 import { AuthForm } from "../components/authForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
 import backButton from '../assets/backButton.png';
 
-export const ForgotPassword = () => {
+export const SetupPage = () => {
+
     return (
         <div 
             className="flex justify-center items-center h-screen relative"
@@ -23,28 +24,27 @@ export const ForgotPassword = () => {
                 backgroundPosition: 'center',
             }}>
 
-                <img className="h-10 hover:opacity-85 ml-[-700px]" href="/login" src={backButton} alt="Back Button" />
+                <img className="h-10 hover:opacity-85 ml-[-700px]" href='/forgotpassword' src={backButton} alt="Back Button" />
 
                 <AuthForm 
-                    title="Forgot Password?"
-                    subtitle="Enjoy fresh items of our"
-                    buttonText="LOGIN"
-                    fields={["EMAIL"]}
-                    style="mt-0"
+                    title="Complete Your Setup!"
+                    subtitle="Set up your account to get started"
+                    buttonText="SIGNUP"
+                    fields={["PHONE NUMBER", "ADDRESS"]}
+                    style="mt-[-50px]"
                     center={true}
-                    subtext="Please enter you’re email address to get the verification code."
+                    subtext="Please provide a secure password, your phone number, and provide your address for a seamless experience."
                 />
 
                 <p className="text-center mt-5 mb-7 text-sm text-[#616161]">
-                    Already have an account?  
+                    Already have an account?
                     <a href="/login" className="font-black text-[#212121] underline p-2 ">
                         Login
                     </a>
                 </p>
-
             </div>
         </div>
     );
 };
 
-export default ForgotPassword;
+export default SetupPage;

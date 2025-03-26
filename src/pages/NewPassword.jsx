@@ -3,9 +3,9 @@ import { Navbar } from "../components/navbar";
 import { AuthForm } from "../components/authForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
-import backButton from '../assets/backButton.png';
+import backButton from '../assets/backButton.png'
 
-export const ForgotPassword = () => {
+export const NewPassword = () => {
     return (
         <div 
             className="flex justify-center items-center h-screen relative"
@@ -22,21 +22,21 @@ export const ForgotPassword = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>
-
-                <img className="h-10 hover:opacity-85 ml-[-700px]" href="/login" src={backButton} alt="Back Button" />
+            
+                <img className="h-10 hover:opacity-85 ml-[-700px]" href='/forgotpassword' src={backButton} alt="Back Button" />
 
                 <AuthForm 
-                    title="Forgot Password?"
+                    title="Set a new Password !"
                     subtitle="Enjoy fresh items of our"
-                    buttonText="LOGIN"
-                    fields={["EMAIL"]}
+                    buttonText="CONFIRM"
+                    fields={["NEW PASSWORD", "CONFIRM PASSWORD"]}
                     style="mt-0"
                     center={true}
-                    subtext="Please enter you’re email address to get the verification code."
+                    subtext="Create a new password . Ensure it differs from previous one for security"
                 />
 
                 <p className="text-center mt-5 mb-7 text-sm text-[#616161]">
-                    Already have an account?  
+                    Already have an account?
                     <a href="/login" className="font-black text-[#212121] underline p-2 ">
                         Login
                     </a>
@@ -47,4 +47,4 @@ export const ForgotPassword = () => {
     );
 };
 
-export default ForgotPassword;
+export default NewPassword;

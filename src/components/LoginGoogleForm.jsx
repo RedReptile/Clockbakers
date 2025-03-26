@@ -4,8 +4,8 @@ import logo from "../assets/logos.png";
 
 export const LoginGoogleForm = ({ linkText, linkHref, linkDisplayText }) => {
     return (
-        <div className="md:absolute md:right-[60px] md:top-[195px] w-full md:w-[500px] md:mt-0">
-            <img className="w-42 h-50 mt-[-170px] ml-42 md:block hidden" src={logo} />
+        <div className="md:absolute md:right-[60px] md:top-[225px] w-full md:w-[500px] md:mt-0">
+            <img className="h-58 mt-[-170px] ml-42 md:block hidden mb-[-50px]" src={logo} />
             <div className="flex items-center justify-center my-4">
                 <div className="w-20 border-t border-gray-400"></div>
                 <span className="mx-4 text-sm font-bold text-[#616161]">OR USE</span>

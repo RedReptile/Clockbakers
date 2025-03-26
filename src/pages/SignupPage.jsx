@@ -27,7 +27,7 @@ export const SignupPage = () => {
                         title="Sign Up for ClockBakers"
                         subtitle="Enjoy fresh items of our"
                         buttonText="CREATE AN ACCOUNT"
-                        fields={["FIRST NAME", "LAST NAME", "EMAIL", "PHONE NUMBER", "PASSWORD", "CONFIRM PASSWORD"]}
+                        fields={["FIRST NAME", "LAST NAME", "EMAIL", "PASSWORD", "CONFIRM PASSWORD"]}
                         style="mt-[-25px]"
                         subtext={false}
                     />

@@ -3,11 +3,9 @@ import React from "react";
 export const AuthForm = ({ title, subtitle, buttonText, fields, style, showForgotPassword, center, subtext }) => {
     return (
         <div
-            className={`
-                w-full md:w-[500px] ${style} 
-                ${center ? "flex flex-col justify-center items-center" : "md:absolute md:left-[60px] md:top-[-20px]"}
-            `}
-        >
+        className={`
+            w-full md:w-[500px] ${style} 
+            ${center ? "flex flex-col justify-center items-center" : "md:absolute md:left-[60px] md:top-[-20px]"} px-4`}>
             <div className="font-bold text-black text-3xl mb-4 md:text-left text-center">
                 {title}
             </div>
