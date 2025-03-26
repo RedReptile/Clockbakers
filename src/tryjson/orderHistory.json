@@ -1,0 +1,31 @@
+[
+    {
+      "id": "ORD-12344",
+      "orderDate": "2023-02-10",
+      "status": "Delivered",
+      "items": [
+        {
+          "id": "ITEM-4",
+          "name": "Red valvet cake",
+          "quantity": 1,
+          "price": 59.99
+        }
+      ],
+      "totalAmount": 59.99,
+      "deliveryDate": "2023-02-20"
+    },
+    {
+      "id": "ORD-12343",
+      "orderDate": "2023-01-05",
+      "status": "Cancelled",
+      "items": [
+        {
+          "id": "ITEM-5",
+          "name": "White forest cake",
+          "quantity": 1,
+          "price": 89.99
+        }
+      ],
+      "totalAmount": 89.99
+    }
+  ]
