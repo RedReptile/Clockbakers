@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 import { AuthForm } from "../components/authForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
@@ -8,7 +8,7 @@ import backButton from '../assets/backButton.png';
 export const SetupPage = () => {
 
     return (
-        <div 
+        <div
             className="flex justify-center items-center h-screen relative"
             style={{
                 backgroundImage: `url(${rectangle})`,
@@ -24,9 +24,9 @@ export const SetupPage = () => {
                 backgroundPosition: 'center',
             }}>
 
-                <img className="h-10 hover:opacity-85 ml-[-700px]" href='/forgotpassword' src={backButton} alt="Back Button" />
+                {/* <img className="h-10 hover:opacity-85 ml-[-700px]" href='/forgotpassword' src={backButton} alt="Back Button" /> */}
 
-                <AuthForm 
+                <AuthForm
                     title="Complete Your Setup!"
                     subtitle="Set up your account to get started"
                     buttonText="SIGNUP"

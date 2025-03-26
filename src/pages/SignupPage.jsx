@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 import { AuthForm } from "../components/authForm";
 import { LoginGoogleForm } from "../components/LoginGoogleForm";
 import rectangle from '../assets/Rectangle.png';
@@ -7,7 +7,7 @@ import formbg from '../assets/formbg.png';
 
 export const SignupPage = () => {
     return (
-        <div 
+        <div
             className="flex justify-center items-center h-screen relative"
             style={{
                 backgroundImage: `url(${rectangle})`,
@@ -23,7 +23,7 @@ export const SignupPage = () => {
                 backgroundPosition: 'center',
             }}>
                 <div className="w-full flex flex-col md:block relative px-4 md:px-0">
-                    <AuthForm 
+                    <AuthForm
                         title="Sign Up for ClockBakers"
                         subtitle="Enjoy fresh items of our"
                         buttonText="CREATE AN ACCOUNT"
@@ -31,7 +31,7 @@ export const SignupPage = () => {
                         style="mt-[-25px]"
                         subtext={false}
                     />
-                    <LoginGoogleForm 
+                    <LoginGoogleForm
                         linkText="Don't have an account?"
                         linkHref="/login"
                         linkDisplayText="Login"

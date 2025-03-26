@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 import { AuthForm } from "../components/authForm";
 import rectangle from '../assets/Rectangle.png';
 import formbg from '../assets/formbg.png';
@@ -7,7 +7,7 @@ import backButton from '../assets/backButton.png'
 
 export const VerificationCode = () => {
     return (
-        <div 
+        <div
             className="flex justify-center items-center h-screen relative"
             style={{
                 backgroundImage: `url(${rectangle})`,
@@ -17,15 +17,21 @@ export const VerificationCode = () => {
             <Navbar />
 
             <div className="absolute w-11/12 md:w-[1150px] h-auto md:h-[580px] mt-[30px] shadow-[0px_2px_2px_2px_00000040] bg-white flex flex-col items-center justify-start rounded-lg pt-24"
-            style={{
-                backgroundImage: `url(${formbg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}>
-            
-                <img className="h-10 hover:opacity-85 ml-[-700px]" href='/forgotpassword' src={backButton} alt="Back Button" />
+                style={{
+                    backgroundImage: `url(${formbg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}>
 
-                <AuthForm 
+                <a href="/login">
+                    <img
+                        className="h-10 hover:opacity-85 absolute left-138 top-120"
+                        src={backButton}
+                        alt="Back Button"
+                    />
+                </a>
+
+                <AuthForm
                     title="We Sent You a Code !"
                     subtitle="Enjoy fresh items of our"
                     buttonText="VERIFY"
