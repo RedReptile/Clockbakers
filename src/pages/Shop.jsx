@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
@@ -6,9 +7,9 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    // Fetch product data dynamically from an API
     const fetchProducts = async () => {
       try {
         const response = await fetch("src/tryjson/products.json"); 
@@ -27,6 +28,11 @@ const Shop = () => {
     fetchProducts();
   }, []);
 
+  // Function to handle card click
+  const handleCardClick = (product) => {
+    navigate('/productdetails', { state: { product } });
+  };
+
   return (
     <div>
       <Navbar />
@@ -34,7 +40,7 @@ const Shop = () => {
 
       <div
         className="min-h-screen flex flex-col items-center py-10 px-5 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/src/assets/Bgpattern.png')" }} // Ensure this is dynamically loaded if needed
+        style={{ backgroundImage: "url('/src/assets/Bgpattern.png')" }} 
       >
         <div className="bg-transparent p-6 rounded-lg">
           <h2 className="text-2xl text-center font-semibold text-gray-800">Featured Products</h2>
@@ -43,7 +49,6 @@ const Shop = () => {
           </p>
         </div>
 
-        {/* Loading and Error Handling */}
         {loading ? (
           <p className="text-gray-700 mt-6">Loading products...</p>
         ) : error ? (
@@ -51,7 +56,16 @@ const Shop = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-1">
             {products.map((product, index) => (
-              <div key={index} className="bg-gray-100 bg-opacity-90 p-4 rounded-xl shadow-md max-w-xs">
+              <div 
+                key={index} 
+                // Added onClick handler
+                onClick={() => handleCardClick(product)} // Added onClick handler
+                className="bg-gray-100 bg-opacity-90 p-4 rounded-xl shadow-md max-w-xs
+                          transition-all duration-300 ease-in-out
+                          hover:bg-white hover:bg-opacity-100
+                          hover:shadow-lg hover:shadow-pink-300 hover:-translate-y-1
+                          cursor-pointer" 
+              >
                 <h3 className="text-lg font-semibold text-gray-700">{product.name}</h3>
                 <p className="text-gray-500 text-sm">{product.description || "Delicious and fresh"}</p>
                 <p className="text-red-500 text-sm font-semibold">-30% off</p>
