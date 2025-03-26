@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/navbar";
 import { AuthForm } from "../components/authForm";
 import { LoginGoogleForm } from "../components/LoginGoogleForm";
 import rectangle from '../assets/Rectangle.png';
