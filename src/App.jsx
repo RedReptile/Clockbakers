@@ -8,9 +8,10 @@ import { ForgotPassword } from './pages/ForgotPasswordPage';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import VerificationCode from './pages/VerificationCode';
 import NewPassword from './pages/NewPassword';
-import SetupPage from './pages/ProfileSetupPage';
+import { SetupPage } from './pages/ProfileSetupPage';
 import ProductDetail from './pages/ProductDetail';
 import Profile from './pages/Profile';
+import { ProtectedRoute } from './ProtectedRoute';
 
 const App = () => {
     return (
@@ -25,7 +26,11 @@ const App = () => {
                     <Route path='forgotpassword' element={<ForgotPassword />} />
                     <Route path="/verification" element={<VerificationCode />} />
                     <Route path="/newpassword" element={<NewPassword />} />
-                    <Route path='/setup' element={<SetupPage />} />
+                    <Route path='/setup' element={
+                        <ProtectedRoute>
+                            <SetupPage />
+                        </ProtectedRoute>
+                    } />
                     <Route path='/productdetails' element={<ProductDetail />}></Route>
                     <Route path='/profile' element={<Profile />}></Route>
                 </Routes>
