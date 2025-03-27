@@ -12,6 +12,7 @@ import { SetupPage } from './pages/ProfileSetupPage';
 import ProductDetail from './pages/ProductDetail';
 import Profile from './pages/Profile';
 import { ProtectedRoute } from './ProtectedRoute';
+import Cart from './pages/Cart';
 
 const App = () => {
     return (
@@ -33,6 +34,7 @@ const App = () => {
                     } />
                     <Route path='/productdetails' element={<ProductDetail />}></Route>
                     <Route path='/profile' element={<Profile />}></Route>
+                    <Route path='/cart' element={<Cart />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
