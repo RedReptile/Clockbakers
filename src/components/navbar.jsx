@@ -71,6 +71,7 @@ const Navbar = () => {
                 </div>
             </div>
 
+
             {/* Mobile Menu (Dropdown) */}
             <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-50' : 'max-h-0'}`}
