@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaShoppingCart, FaUser, FaBars } from 'react-icons/fa';
 import logo from '../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const token = localStorage.getItem("auth_token");  // Check if token exists
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleLogout = () => {
+        // Remove token from localStorage and navigate to login page
+        localStorage.removeItem("auth_token");
+        navigate("/login");  // Redirect to login page after logout
     };
 
     return (
@@ -21,24 +30,14 @@ const Navbar = () => {
 
                 {/* Left Side: Navigation Links (Hidden on Mobile) */}
                 <div className="hidden md:flex space-x-12 mr-40 m-4">
-                    <a href="/" className="text-gray-800 hover:text-gray-600 text-sm font-medium">
-                        HOME
-                    </a>
-                    <a href="/shop" className="text-gray-800 hover:text-gray-600 text-sm font-medium">
-                        SHOP
-                    </a>
-                    <a href="/about" className="text-gray-800 hover:text-gray-600 text-sm font-medium">
-                        ABOUT
-                    </a>
+                    <a href="/" className="text-gray-800 hover:text-gray-600 text-sm font-medium">HOME</a>
+                    <a href="/shop" className="text-gray-800 hover:text-gray-600 text-sm font-medium">SHOP</a>
+                    <a href="/about" className="text-gray-800 hover:text-gray-600 text-sm font-medium">ABOUT</a>
                 </div>
 
                 {/* Clockbakers Logo */}
                 <div className="absolute left-1/2 transform -translate-x-1/2">
-                    <img
-                        src={logo}
-                        alt="Clockbakers Logo"
-                        className="h-11 md:h-14"
-                    />
+                    <img src={logo} alt="Clockbakers Logo" className="h-11 md:h-14" />
                 </div>
 
                 {/* Right Side: Icons and Login/Register */}
@@ -48,13 +47,22 @@ const Navbar = () => {
                         <FaShoppingCart className="text-lg" />
                     </a>
 
-                    {/* Login/Register */}
-                    <a
-                        href="/login"
-                        className="hidden md:inline-block text-gray-800 hover:text-gray-600 text-sm font-medium bg-transparent"
-                    >
-                        LOGIN/REGISTER
-                    </a>
+                    {/* Conditional rendering for login/register or logout */}
+                    {!token ? (
+                        <a
+                            href="/login"
+                            className="hidden md:inline-block text-gray-800 hover:text-gray-600 text-sm font-medium bg-transparent"
+                        >
+                            LOGIN/REGISTER
+                        </a>
+                    ) : (
+                        <button
+                            onClick={handleLogout}
+                            className="text-gray-800 hover:text-gray-600 text-sm font-medium bg-transparent"
+                        >
+                            LOGOUT
+                        </button>
+                    )}
 
                     {/* Profile Icon */}
                     <a href="/profile" className="text-gray-800 hover:text-gray-600">
@@ -68,18 +76,19 @@ const Navbar = () => {
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-50' : 'max-h-0'}`}
             >
                 <div className="flex flex-col space-y-2 mt-2 m-2 ">
-                    <a href="/" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">
-                        HOME
-                    </a>
-                    <a href="/shop" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">
-                        SHOP
-                    </a>
-                    <a href="/about" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">
-                        ABOUT
-                    </a>
-                    <a href="/login" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">
-                        LOGIN/REGISTER
-                    </a>
+                    <a href="/" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">HOME</a>
+                    <a href="/shop" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">SHOP</a>
+                    <a href="/about" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">ABOUT</a>
+                    {!token ? (
+                        <a href="/login" className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4">LOGIN/REGISTER</a>
+                    ) : (
+                        <button
+                            onClick={handleLogout}
+                            className="text-gray-800 hover:text-gray-600 text-sm font-medium py-2 px-4"
+                        >
+                            LOGOUT
+                        </button>
+                    )}
                 </div>
             </div>
         </nav>

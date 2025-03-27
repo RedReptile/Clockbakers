@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import Navbar from '../components/navbar';
 import Header from '../pages/Home/Header';
 
 const ProductDetail = () => {
-    const [product, setProduct] = useState(null);
+    const location = useLocation();
+    const product = location.state?.product; // Access the product data passed via navigation
     const [showPopup, setShowPopup] = useState(false);
     const [popupImage, setPopupImage] = useState('');
 
-    useEffect(() => {
-        // Fetch product data dynamically from the JSON file
-        const fetchProductData = async () => {
-            try {
-                const response = await fetch('src/tryjson/productDetail.json'); // Path to the JSON file
-                const data = await response.json();
-                setProduct(data);
-            } catch (error) {
-                console.error("Failed to fetch product data:", error);
-            }
-        };
-
-        fetchProductData();
-    }, []);
+    if (!product) {
+        return <div className="text-center text-lg font-semibold text-red-500 mt-10">No product details available.</div>;
+    }
 
     const handleMouseEnter = (image) => {
         setPopupImage(image);
@@ -32,28 +23,23 @@ const ProductDetail = () => {
         setShowPopup(false);
     };
 
-    if (!product) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <div>
             <Navbar />
             <Header />
             <div
                 className="min-h-screen flex flex-col items-center py-10 px-5 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/src/assets/Bgpattern.png')" }} // Ensure this is dynamically loaded if needed
+                style={{ backgroundImage: "url('/src/assets/Bgpattern.png')" }}
             >
                 <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    {/* left Side */}
-                    {/* Cake Picture */}
+                    {/* Left Side - Product Image */}
                     <div className="relative flex justify-center items-center flex-col">
                         <div className="relative flex justify-center">
                             <img
-                                src={product.image}
+                                src={'src/assets/cakes/' + product.sku + '.png'}
                                 alt={product.name}
                                 className="w-80 h-80 object-cover rounded-lg"
+                                onError={(e) => { e.target.src = "/src/assets/placeholder.png"; }} // Fallback image
                             />
                             {showPopup && (
                                 <div className="absolute inset-0 flex items-center justify-center bg-white shadow-lg p-2 sm:p-4 rounded-lg z-10 w-[90%] sm:w-80 max-w-full h-auto">
@@ -66,76 +52,49 @@ const ProductDetail = () => {
                             )}
                         </div>
 
-                        {/* Popup Image */}
-                        <div className="flex gap-2 mt-4">
-                            {product.thumbnails.map((image, index) => (
-                                <img
-                                    key={index}
-                                    src={image}
-                                    alt="Thumbnail"
-                                    className="w-15 h-15 rounded-lg cursor-pointer border border-gray-300 hover:border-pink-500"
-                                    onMouseEnter={() => handleMouseEnter(image)}
-                                    onMouseLeave={handleMouseLeave}
-                                />
-                            ))}
-                        </div>
                         {/* Description */}
                         <div className="flex flex-col sm:flex-row gap-4 mt-2 group">
                             <div className="mt-2 text-left">
                                 <div className="flex items-center">
-                                    {/* Red left section */}
                                     <div className="bg-pink-600 w-2 h-10"></div>
                                     <div className="ml-4">
                                         <h1 className="text-2xl font-semibold text-gray-800">Description</h1>
                                     </div>
                                 </div>
-                                <p className="mt-1 text-md">{product.description.intro}</p>
-                                <ul className="list-disc text-md pl-5 mt-2">
-                                    {product.description.details.map((item, index) => (
-                                        <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
+                                <p className="mt-1 text-md">{product.description || "Delicious and fresh cake!"}</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right Side */}
+                    {/* Right Side - Product Details */}
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800">{product.name}</h2>
                         <p className="text-xl text-gray-700">${product.price.toFixed(2)}</p>
+
                         <div className="mt-4">
-                            <p className="font-semibold">Choose weight (in pound)</p>
+                            <p className="font-semibold">Choose weight (in pounds)</p>
                             <div className="flex gap-2 mt-2">
-                                {product.weights.map((weight) => (
-                                    <button
-                                        key={weight}
-                                        className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-600"
-                                    >
-                                        {weight}
+                                {[0.5, 1, 2, 3].map((weight) => (
+                                    <button key={weight} className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
+                                        {weight} lb
                                     </button>
                                 ))}
                             </div>
                         </div>
+
                         {/* Delivery Date & Location */}
                         <div className="flex flex-col sm:flex-row gap-4 mt-2">
                             <div className="mt-2">
                                 <label className="font-semibold">Delivery Date:</label>
-                                <input
-                                    type="date"
-                                    className="border p-2 rounded-sm w-full mt-1"
-                                    value={product.deliveryDate}
-                                    readOnly
-                                />
+                                <input type="date" className="border p-2 rounded-sm w-full mt-1" />
                             </div>
                             <div className="mt-2">
                                 <label className="font-semibold">Location:</label>
                                 <select className="border p-2 rounded-sm w-full mt-1">
                                     <option>--Select Location--</option>
-                                    {product.location.map((location, index) => (
-                                        <option key={index} value={location}>
-                                            {location}
-                                        </option>
-                                    ))}
+                                    <option value="Kathmandu">Kathmandu</option>
+                                    <option value="Lalitpur">Lalitpur</option>
+                                    <option value="Bhaktapur">Bhaktapur</option>
                                 </select>
                             </div>
                         </div>
@@ -145,11 +104,9 @@ const ProductDetail = () => {
                             <label className="font-semibold">Time:</label>
                             <select className="border p-2 rounded-sm w-full mt-1">
                                 <option>--Select Time--</option>
-                                {product.time.map((time, index) => (
-                                    <option key={index} value={time}>
-                                        {time}
-                                    </option>
-                                ))}
+                                <option value="Morning">Morning (9 AM - 12 PM)</option>
+                                <option value="Afternoon">Afternoon (12 PM - 4 PM)</option>
+                                <option value="Evening">Evening (4 PM - 8 PM)</option>
                             </select>
                         </div>
 
